@@ -1,0 +1,32 @@
+.fileaccess-menu {
+	color: #aaa;
+	text-align: left;
+	width: 100%;
+	margin-bottom: 1.5em;
+}
+form.fileaccess-form {
+	border-bottom: 1px solid #ccc;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	padding: 10px 0;
+	margin: 10px 0px 10px 0px;
+}
+div.fileaccess-formrow>label {
+	float: left;
+	width: 23em;
+	margin-left: 5px;
+	padding: 0px 5px 0px 0px;
+	text-align: right;
+}
+div.fileaccess-formrow {
+	border-top: 0 solid #ccc;
+	min-height: 2em;
+	padding: 5px 0 10px;
+	clear: both;
+}
+
+div.fileaccess-formrow input, div.fileaccess-formrow textarea, div.fileaccess-formrow select, div.fileaccess-formrow label {
+	margin-left: 2em;
+	text-align: left;
+}

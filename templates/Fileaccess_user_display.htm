@@ -1,0 +1,17 @@
+{include file="Fileaccess_user_menu.htm"}
+<div class="Fileaccess_item">
+{* Print the item name. Note the chaning of the modifiers. *}
+{gt text="Fileaccess item name"}: 
+{if $bold}  
+{* Please note that the use of the "Fileaccessbold" modifier *}
+{* is just an Fileaccess of how to use your own plugins.     *}
+{* Otherwise, using a plugin for such a simple function   *}
+{* would be overkill -- you would simply put the string   *}
+{* in <strong>...</strong>                                          *}
+{$itemname|modcallhooks|safehtml|varcensor|Fileaccessbold}
+{else}
+{$itemname|modcallhooks|safehtml|varcensor}
+{/if}
+{gt text="Fileaccess target folder"}: {$number|safetext}
+</div>
+{modurl modname=Fileaccess func=display tid=$tid assign=returnurl}

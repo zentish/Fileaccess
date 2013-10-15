@@ -1,0 +1,6 @@
+<!--template Fileaccess_user_mkdir_form.htm-->
+<form method="POST" action="{modurl modname="Fileaccess" type="user" func="mkdir" file=$mkdir_file}" >
+Make a new sub-folder in '{$mkdir_file}', folder named: <input name="newfolder" type="text" >
+<input type="submit" value="Make Dir" >
+<input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+</form>

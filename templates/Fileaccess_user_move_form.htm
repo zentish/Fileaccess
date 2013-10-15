@@ -1,0 +1,13 @@
+<!-- template Fileaccess_user_move_form.htm -->
+<form method="POST" action="{modurl modname="Fileaccess" type="user" func="move" source=$source destination=$destination newname=$newname}" >
+Move '{$source}' to folder <select name="destdir">
+{foreach key=outer item=entry from=$folderlist}
+{if $entry.type == "dir" }
+<option value="{$entry.vfilename}" {if $entry.vfilename == $destdir } selected="selected" {/if}>{$entry.vfilename}</option>
+{/if}
+{/foreach}
+</select>
+named <input name="destname" type="text" title="rename the file if desired" value="{$destname}">
+<input type="submit" value="Move" >
+<input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+</form>

@@ -1,0 +1,2 @@
+{*  $Id: Fileaccess_admin_main.htm,v 1.1 2006/06/15 05:13:48 craig Exp $  *}
+{modfunc modname=Fileaccess type=admin func=view}
