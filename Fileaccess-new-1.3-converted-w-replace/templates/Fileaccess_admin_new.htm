@@ -1,0 +1,22 @@
+{include file="Fileaccess_admin_menu.htm"}
+<h2>{gt text="Add Fileaccess item"}</h2>
+<form class="fileaccess-form" action="{modurl modname="Fileaccess" type="admin" func="create"}" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="{secgenauthkey module="Fileaccess"}" />
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_name">{gt text="Fileaccess item name"}</label>
+		<input id="Fileaccess_name" name="itemname" type="text" size="32" maxlength="32" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_folder">{gt text="Fileaccess target folder"}</label>
+		<input id="Fileaccess_folder" name="number" type="text" size="5" maxlength="5" />
+	</div>
+	<div class="fileaccess-formrow">
+	  {modcallhooks hookobject=item hookaction=new module=Fileaccess}
+	</div>
+	<div class="fileaccess-formrow">
+		<input name="submit" type="submit" value="{gt text="_CREATE"}" />
+	</div>
+	<div style="clear:both"></div>
+</div>
+</form>

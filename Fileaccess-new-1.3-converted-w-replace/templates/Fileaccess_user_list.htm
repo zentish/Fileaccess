@@ -1,0 +1,25 @@
+<!-- template Fileaccess_user_list.htm  -->
+<div class="Fileaccess_itemlist">
+{assign var="itemcount" value="0"}
+<table width="100%" cellspacing="0">
+{* Loop through the file items and display them   *}
+{foreach key=outer item=entry from=$items}
+<tr {if $bold==1 and $itemcount++ is div by $itemsperbold} bgcolor="#CCCCCC" {/if} ><td width="80%">
+	{" "|indent:$entry.depth:$indentchar}<a title="open/close this {$entry.type}" href="{modurl modname="Fileaccess" func="display" file=$entry.vfilename}&amp;csrftoken={insert name='csrftoken'}"><img src={$entry.icon}> {$entry.basename|safehtml|varcensor}</a>
+</td><td>
+{if $entry.delete}
+<a style="font-size:7pt;" href="{modurl modname="Fileaccess" func="delete" file=$entry.vfilename}&amp;csrftoken={insert name='csrftoken'}" title="delete this {$entry.type}" >delete</a>
+<a style="font-size:7pt;" href="{modurl modname="Fileaccess" func="move" source=$entry.vfilename}&amp;csrftoken={insert name='csrftoken'}" title="move or rename this {$entry.type}">move</a>
+{/if}
+{if $entry.add}
+<a style="font-size:7pt;" href="{modurl modname="Fileaccess" func="add" file=$entry.vfilename}&amp;csrftoken={insert name='csrftoken'}" title="upload a new file into this dir">add</a>
+{/if}
+{if $entry.mkdir}
+<a style="font-size:7pt;" href="{modurl modname="Fileaccess" func="mkdir" file=$entry.vfilename}&amp;csrftoken={insert name='csrftoken'}" title="make a new subfolder within this directory">mkdir</a>
+{/if}
+</font></td></tr>
+{/foreach}
+</table width="80%" cellspacing="0">
+</div>
+{modurl modname=Fileaccess func=view startnum=$startnum assign=returnurl}
+

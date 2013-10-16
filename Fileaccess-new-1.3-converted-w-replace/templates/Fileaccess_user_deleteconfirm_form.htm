@@ -1,0 +1,4 @@
+<!--template Fileaccess_user_deleteconfirm_form.htm-->
+<form method="POST" action="{modurl modname="Fileaccess" type="user" func="delete" file=$file confirm="yes"}" >
+<input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+Are you sure you wish to delete '{$file}'? <input type="submit" value="Confirm" ></form>

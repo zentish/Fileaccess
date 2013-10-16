@@ -1,0 +1,54 @@
+{*  $Id: Fileaccess_admin_modifyconfig.htm,v 1.1 2006/06/15 05:13:48 craig Exp $  *}
+{include file="Fileaccess_admin_menu.htm"}
+<h2>{gt text="Modify Fileaccess Configuration"}</h2>
+<form class="fileaccess-form" action="{modurl modname="Fileaccess" type="admin" func="updateconfig"}" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="{secgenauthkey module="Fileaccess"}" />
+
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_rootdir">{gt text="Root directory for File Access"}</label>
+		<input id="Fileaccess_rootdir" type="text" name="rootdir" size="46" value="{$rootdir|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconfile">{gt text="Icon to use for a downloadable file"}</label>
+		<input id="Fileaccess_iconfile" type="text" name="iconfile" size="46" value="{$iconfile|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconfolder">{gt text="Icon for open a folder"}</label>
+		<input id="Fileaccess_iconfolder" type="text" name="iconfolder" size="46" value="{$iconfolder|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconfolderopen">{gt text="Icon for open an open folder"}</label>
+		<input id="Fileaccess_iconfolderopen" type="text" name="iconfolderopen" size="46" value="{$iconfolderopen|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconmove">{gt text="Icon to use during an interim move"}</label>
+		<input id="Fileaccess_iconmove" type="text" name="iconmove" size="46" value="{$iconmove|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconlog">{gt text="Icon to use for the log file download"}</label>
+		<input id="Fileaccess_iconlog" type="text" name="iconlog" size="46" value="{$iconlog|safetext}" />
+	</div>
+
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_bold">{gt text="Enables and disables the highlighting of item entries"}</label>
+		{if $bold eq 1}
+		<input id="Fileaccess_bold" name="bold" type="checkbox" value="1" checked="checked" />
+		{else}
+		<input id="Fileaccess_bold" name="bold" type="checkbox" value="1" />
+		{/if}
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_itemsperbold">{gt text="Number of items to skip before highlighting an entry"}</label>
+		<input id="Fileaccess_itemsperbold" type="text" name="itemsperbold" size="3" value="{$itemsperbold|safetext}" />
+	</div>
+
+	<div class="fileaccess-formrow">
+		{modcallhooks hookobject="module" hookaction="modifyconfig" hookid="Fileaccess" module="Fileaccess"}
+	</div>
+	<div class="fileaccess-formrow">
+	<input name="submit" type="submit" value="{gt text="Update Fileaccess Configuration"}" />
+	</div>
+	<div style="clear:both"></div>
+</div>
+</form>

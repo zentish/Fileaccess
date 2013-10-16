@@ -1,0 +1,8 @@
+<!-- template Fileaccess_upload_form.htm -->
+<form method="POST" enctype="multipart/form-data"  action="{modurl modname="Fileaccess" type="user" func="add" file=$file}" >
+<input type="hidden" name="MAX_FILE_SIZE" value="{$filemaxsize}" />
+<input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+Select a file for upload into '{$file}':
+<input name="userfile" type="file" title="select local file for upload">
+Then press to <input type="submit" value="Upload" title="press to activate upload">
+</form>

@@ -1,0 +1,17 @@
+{* Include a common menu to show at the header   *}
+<!-- template Fileaccess_user_view.htm -->
+{include file="Fileaccess_user_menu.htm"}
+<div class="Fileaccess_itemlist">
+{* Loop through the items and display them   *}
+<table width="100%" cellspacing="0">
+<tr><td colspan=2>&nbsp;{$statusmsg}<br />
+{if $errormsg}<b>ERROR: {$errormsg} </b> {/if}
+</td></tr>
+<tr><td align="left">
+{foreach item=item from=$items}
+<!--start an item-->{$item}<br /><!--end an item-->
+{/foreach}
+</td></tr></table width="80%" cellspacing="0">
+</div>
+
+{modurl modname=Fileaccess func=view startnum=$startnum assign=returnurl}

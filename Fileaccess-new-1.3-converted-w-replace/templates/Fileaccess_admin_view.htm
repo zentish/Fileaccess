@@ -1,0 +1,25 @@
+{include file="Fileaccess_admin_menu.htm"}
+<h2>{gt text="View Fileaccess items"}</h2>
+<table class="pn-admintable">
+  <tr>
+      <th>{gt text="Fileaccess item name"}</th>
+      <th>{gt text="Fileaccess target folder"}</th>
+      <th>{gt text="_OPTIONS"}</th>
+  </tr>
+  {section name="Fileaccessitems" loop=$Fileaccessitems}  
+    <tr class="{cycle values=pn-odd,pn-even}">
+      <td>{$Fileaccessitems[Fileaccessitems].itemname|safehtml}</td>
+      <td>{$Fileaccessitems[Fileaccessitems].number|safehtml}</td>
+	  <td>
+	    {assign var="options" value=$Fileaccessitems[Fileaccessitems].options}
+		{strip}
+        [{section name=options loop=$options}
+	    <a href="{$options[options].url|safetext}">{gt text=$options[options].title}</a> 
+		{if !$smarty.section.options.last} | {/if}
+        {/section}]
+		{/strip}
+      </td>
+    </tr>
+  {/section}
+</table>
+{pager show="page" rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1}

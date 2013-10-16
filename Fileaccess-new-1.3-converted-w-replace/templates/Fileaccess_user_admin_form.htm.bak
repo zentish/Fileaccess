@@ -1,0 +1,6 @@
+<!--template Fileaccess_user_admin_form.htm-->
+Log File Management: [
+<a href="{modurl modname="Fileaccess" type="user" func="viewlog" junk="junk"}&amp;csrftoken={insert name='csrftoken'}" target="_blank" >View</a><br />
+|
+<a href="{modurl modname="Fileaccess" type="user" func="deletelog"}&amp;csrftoken={insert name='csrftoken'}">Delete</a><br />
+]

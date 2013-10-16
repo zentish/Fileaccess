@@ -1,0 +1,2 @@
+Changelog for the FileAccess module
+2011-11-1 Craig Nelson Modified to work with Zikula permission system

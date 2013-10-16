@@ -1,0 +1,76 @@
+{include file="Fileaccess_admin_menu.htm"}
+<h2>{gt text="Modify Fileaccess Configuration"}</h2>
+<form class="fileaccess-form" action="{modurl modname="Fileaccess" type="admin" func="updateconfig"}" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_rootdir">{gt text="Root directory for File Access"}</label>
+		<input id="Fileaccess_rootdir" type="text" name="rootdir" size="46" value="{$rootdir|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconfile">{gt text="Icon to use for a downloadable file"}</label>
+		<input id="Fileaccess_iconfile" type="text" name="iconfile" size="46" value="{$iconfile|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconfolder">{gt text="Icon for open a folder"}</label>
+		<input id="Fileaccess_iconfolder" type="text" name="iconfolder" size="46" value="{$iconfolder|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconfolderopen">{gt text="Icon for open an open folder"}</label>
+		<input id="Fileaccess_iconfolderopen" type="text" name="iconfolderopen" size="46" value="{$iconfolderopen|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconmove">{gt text="Icon to use during an interim move"}</label>
+		<input id="Fileaccess_iconmove" type="text" name="iconmove" size="46" value="{$iconmove|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_iconlog">{gt text="Icon to use for the log file download"}</label>
+		<input id="Fileaccess_iconlog" type="text" name="iconlog" size="46" value="{$iconlog|safetext}" />
+	</div>
+
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_bold">{gt text="Enables and disables the highlighting of item entries"}</label>
+		{if $bold eq 1}
+		<input id="Fileaccess_bold" name="bold" type="checkbox" value="1" checked="checked" />
+		{else}
+		<input id="Fileaccess_bold" name="bold" type="checkbox" value="1" />
+		{/if}
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_itemsperbold">{gt text="Number of items to skip before highlighting an entry"}</label>
+		<input id="Fileaccess_itemsperbold" type="text" name="itemsperbold" size="3" value="{$itemsperbold|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+		<label for="Fileaccess_filemaxsize">{gt text="Maximum file size in bytes (enforced by the form - see below for more factors)"}</label>
+		<input id="Fileaccess_filemaxsize" type="text" name="filemaxsize" size="12" value="{$filemaxsize|safetext}" />
+	</div>
+	<div class="fileaccess-formrow">
+	<input name="submit" type="submit" value="{gt text="Update Fileaccess Configuration"}" />
+	</div>
+  <hr/>
+	<div class="fileaccess-formrow">
+		<br/>NOTE These php.ini values affect upload file sizes:<br/> post_max_size: {$php_ini_post_max_size}<br/> upload_max_filesize: {$php_ini_upload_max_filesize}<br/> max_file_uploads: {$php_ini_max_file_uploads}
+		<br/>To override these settings, place an ".htaccess" file in the Zikula folder containing the directives:
+<pre>
+###########################################################################
+# override these php runtime settings to control file uploads
+# adjust the settings to suit your installation requirements
+# these require an apache global setting of 
+# "AllowOverride All" 
+# -or-
+# "AllowOverride Options"
+# ask your ISP if these don't work
+###########################################################################
+&lt;IfModule mod_php5.c&gt;
+# max size of a single file upload
+php_value upload_max_filesize 4M
+# max total size of a POST, must be eq or gt upload_max_filesize
+php_value post_max_size 8M
+# not used in this module
+php_value max_file_uploads 20
+&lt;/IfModule&gt;
+</pre>
+	</div>
+	<div style="clear:both"></div>
+</div>
+</form>
